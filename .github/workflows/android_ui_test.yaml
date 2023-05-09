@@ -21,3 +21,4 @@ jobs:
           # in current docs of reactivecircus, the script is
           # ./gradlew connectedCheck
           script: ./gradlew app:connectedCheck
+          emulator-build: 7425822 # https://github.com/ReactiveCircus/android-emulator-runner/issues/160
