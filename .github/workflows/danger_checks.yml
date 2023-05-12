@@ -1,19 +1,22 @@
-name: CI
+name: Danger Workflow
 
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   danger:
     runs-on: ubuntu-latest
     if: github.event_name  == 'pull_request' # if only run pull request when multiple trigger workflow
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.6'
+          ruby-version: '3.0' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - run: bundle exec rake
+
       - uses: actions/cache@v1
         with:
           path: vendor/bundle
