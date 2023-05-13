@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-#setup JDK for gradle
+      #setup JDK for gradle
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
@@ -36,7 +36,3 @@ jobs:
 
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
-#               seems to be added later in the project
-#          ./gradlew dependencyUpdates
-
-# is secret well
