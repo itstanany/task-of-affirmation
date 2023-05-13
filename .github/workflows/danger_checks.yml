@@ -37,11 +37,12 @@ jobs:
 
       - name: Danger Checks
         run: |
-#               seems to be added later in the project
-#          ./gradlew dependencyUpdates
           gem install bundler
           bundle install
           bundle exec danger
+#               seems to be added later in the project
+#          ./gradlew dependencyUpdates
+
 
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
