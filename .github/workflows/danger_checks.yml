@@ -9,25 +9,32 @@ jobs:
   danger:
     runs-on: ubuntu-latest
     if: github.event_name  == 'pull_request' # if only run pull request when multiple trigger workflow
+
+
+
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 100
+
+      #setup JDK for gradle
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
+          cache: 'gradle'
+
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0' # Not needed with a .ruby-version file
+          ruby-version: '2.7' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-      - run: bundle exec rake
 
-      - uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('Gemfile') }} # change your gemfile path
-          restore-keys: |
-            ${{ runner.os }}-gems-
-      - uses: MeilCli/danger-action@v5
-        with:
-          plugins_file: 'Gemfile'
-          install_path: 'vendor/bundle'
-          danger_file: 'Dangerfile'
-          danger_id: 'danger-pr'
+
+      - name: Danger Checks
+        run: |
+          gem install bundler
+          bundle install
+          bundle exec danger --verbose
+
         env:
-          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN  }}

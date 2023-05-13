@@ -3,7 +3,7 @@ name: Android UI Tests
 on: pull_request
 
 jobs:
-  build:
+  android-ui-test:
     runs-on: macos-latest
     steps:
       - name: Checkout
