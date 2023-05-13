@@ -35,4 +35,4 @@ jobs:
 
 
         env:
-          DANGER_GITHUB_API_TOKEN: ${{ secrets.dangerToken }}
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
