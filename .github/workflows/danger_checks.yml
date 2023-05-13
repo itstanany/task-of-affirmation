@@ -9,8 +9,19 @@ jobs:
   danger:
     runs-on: ubuntu-latest
     if: github.event_name  == 'pull_request' # if only run pull request when multiple trigger workflow
+
+
+
     steps:
       - uses: actions/checkout@v3
+
+#setup JDK for gradle
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
+          cache: 'gradle'
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0' # Not needed with a .ruby-version file
