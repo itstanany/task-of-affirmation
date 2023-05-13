@@ -29,7 +29,10 @@ jobs:
 
 
       - name: Danger Checks
-        run: bundle exec danger --verbose
+        run: |
+          gem install bundler
+          bundle install
+          bundle exec danger --verbose
 
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
