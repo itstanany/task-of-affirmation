@@ -33,6 +33,6 @@ jobs:
 #               seems to be added later in the project
 #          ./gradlew dependencyUpdates
 
-
+# is secret well
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
