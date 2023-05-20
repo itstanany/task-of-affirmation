@@ -1,0 +1,19 @@
+apply plugin: "org.jlleitschuh.gradle.ktlint" // Version should be inherited from parent
+
+
+ktlint {
+
+    // https://github.com/pinterest/ktlint/releases
+//    48.2 is the latest compatible with the "plugin: "org.jlleitschuh.gradle.ktlint""
+    version = "0.48.2"
+
+    debug = true
+    verbose = true
+    reporters {
+        reporter "plain"
+        reporter "checkstyle"
+        reporter "html"
+    }
+
+    outputColorName = "RED"
+}
