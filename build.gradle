@@ -2,6 +2,9 @@ buildscript {
     ext {
         // https://github.com/JLLeitschuh/ktlint-gradle/releases
         ktLintPluginVersion = "11.3.2"
+
+        // https://github.com/detekt/detekt/releases
+        detektVersion = "1.22.0"
     }
 }
 
@@ -11,9 +14,12 @@ plugins {
     id 'com.android.library' version '8.0.1' apply false
     id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
     id 'org.jlleitschuh.gradle.ktlint' version "$ktLintPluginVersion" apply false
+    id "io.gitlab.arturbosch.detekt" version "$detektVersion"
+
 }
 
 subprojects {
 //    ktlint for code formatting
     apply from:"../buildscripts/ktlint.gradle"
+    apply from:"../buildscripts/detekt.gradle"
 }
