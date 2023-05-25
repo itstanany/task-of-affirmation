@@ -22,4 +22,7 @@ subprojects {
 //    ktlint for code formatting
     apply from:"../buildscripts/ktlint.gradle"
     apply from:"../buildscripts/detekt.gradle"
+    // git hooks task
+    apply from:"../git-hooks/git-hooks.gradle"
+
 }
