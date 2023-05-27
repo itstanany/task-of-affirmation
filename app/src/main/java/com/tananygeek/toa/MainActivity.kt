@@ -44,6 +44,8 @@ fun Greeting(
 @Composable
 fun GreetingPreview() {
     TasksOfAffirmationTheme {
-        Greeting("Android")
+        TasksOfAffirmationTheme() {
+            Greeting("Android")
+        }
     }
 }
