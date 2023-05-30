@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.toUpperCase
-import androidx.compose.ui.tooling.preview.Preview
 import com.tananygeek.toa.R
 import com.tananygeek.toa.ui.theme.ButtonShape
+import com.tananygeek.toa.ui.utility.NightLightPreview
 
 @Composable
 fun PrimaryButton(
@@ -41,9 +41,7 @@ fun PrimaryButton(
     }
 }
 
-@Preview(
-    name = "Night Mode",
-)
+@NightLightPreview
 @Composable
 fun PrimaryButtonPreview() {
     PrimaryButton(
