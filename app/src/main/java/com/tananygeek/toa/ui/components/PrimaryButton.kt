@@ -14,6 +14,7 @@ import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.toUpperCase
 import com.tananygeek.toa.R
 import com.tananygeek.toa.ui.theme.ButtonShape
+import com.tananygeek.toa.ui.theme.TasksOfAffirmationTheme
 import com.tananygeek.toa.ui.utility.NightLightPreview
 
 @Composable
@@ -44,8 +45,10 @@ fun PrimaryButton(
 @NightLightPreview
 @Composable
 fun PrimaryButtonPreview() {
-    PrimaryButton(
-        text = "Primary Button",
-        onClick = { },
-    )
+    TasksOfAffirmationTheme() {
+        PrimaryButton(
+            text = "Primary Button",
+            onClick = { },
+        )
+    }
 }
