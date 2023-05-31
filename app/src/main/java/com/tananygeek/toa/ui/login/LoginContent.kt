@@ -31,6 +31,10 @@ private const val APP_LOGO_FRACTION_WIDTH = 0.75F
  * This composable maintains the UI for the Sign In screen.
  *
  * @param [viewState] The current state of Login screen to render.
+ * @param [onUserNameChanged] A callback invoked when user inputs username.
+ * @param [onUserPasswordChanged] A callback invoked when user inputs password.
+ * @param [onSignInClicked] A callback invoked when user hits sign in button.
+ * @param [onSignUpClicked] A callback invoked when user hits sign up button.
  */
 @Composable
 fun LoginContent(
