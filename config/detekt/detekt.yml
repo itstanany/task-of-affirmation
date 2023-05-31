@@ -43,11 +43,12 @@ console-reports:
 
 output-reports:
   active: true
-  exclude:
-  # - 'TxtOutputReport'
-  # - 'XmlOutputReport'
-  # - 'HtmlOutputReport'
-  # - 'MdOutputReport'
+  exclude: [
+  'TxtOutputReport',
+  'XmlOutputReport',
+  'HtmlOutputReport',
+  'MdOutputReport',
+  ]
 
 comments:
   active: true
@@ -684,7 +685,7 @@ style:
   UnusedPrivateMember:
     active: true
     allowedNames: '(_|ignored|expected|serialVersionUID)'
-    ignoreAnnotated: ['Preview']
+    ignoreAnnotated: ['Preview', 'PreviewNightLight']
   UseAnyOrNoneInsteadOfFind:
     active: true
   UseArrayLiteralsInAnnotations:

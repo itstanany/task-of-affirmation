@@ -11,4 +11,4 @@ import androidx.compose.ui.tooling.preview.Preview
     name = "Light Mode",
     uiMode = Configuration.UI_MODE_NIGHT_NO,
 )
-annotation class NightLightPreview
+annotation class PreviewNightLight
