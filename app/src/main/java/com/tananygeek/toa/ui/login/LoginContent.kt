@@ -28,13 +28,17 @@ import com.tananygeek.toa.ui.utility.PreviewNightLight
 private const val APP_LOGO_FRACTION_WIDTH = 0.75F
 
 /**
- * This composable maintains the entire screen for handling user input.
+ * This composable maintains the UI for the Sign In screen.
  *
  * @param [viewState] The current state of Login screen to render.
  */
 @Composable
 fun LoginContent(
     viewState: LoginViewState,
+    onUserNameChanged: (String) -> Unit,
+    onUserPasswordChanged: (String) -> Unit,
+    onSignInClicked: () -> Unit,
+    onSignUpClicked: () -> Unit,
 ) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
@@ -58,57 +62,108 @@ fun LoginContent(
                     modifier = Modifier
                         .weight(1F),
                 )
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.ic_launcher_foreground,
-                    ),
-                    contentDescription = stringResource(
-                        R.string.app_logo_content_description,
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth(APP_LOGO_FRACTION_WIDTH),
-                )
+
+                AppLogo()
+
                 Spacer(
                     modifier = Modifier
                         .weight(1F),
                 )
-                TOATextField(
+
+                UserNameInput(
                     text = viewState.userName,
-                    onTextChanged = { /* TODO */ },
-                    labelText = stringResource(
-                        R.string.username,
-                    ),
-                )
-                TOATextField(
-                    text = viewState.password,
-                    onTextChanged = { /* TODO */ },
-                    labelText = stringResource(
-                        R.string.password,
-                    ),
-                )
-
-                VerticalSpacer(height = 48.dp)
-
-                PrimaryButton(
-                    text = stringResource(
-                        R.string.sign_in,
-                    ),
-                    onClick = { /*TODO*/ },
-                    backgroundColor = MaterialTheme.colorScheme.primary,
+                    onTextChanged = onUserNameChanged,
                 )
 
                 VerticalSpacer(height = 12.dp)
 
-                SecondaryButton(
-                    text = stringResource(
-                        R.string.sign_up,
-                    ),
-                    onClick = { /* TODO */ },
-                    contentColor = MaterialTheme.colorScheme.primary,
+                PasswordInput(
+                    text = viewState.password,
+                    onTextChanged = onUserPasswordChanged,
+                )
+
+                VerticalSpacer(height = 48.dp)
+
+                SignInBtn(
+                    onClick = onSignInClicked,
+                )
+
+                VerticalSpacer(height = 12.dp)
+
+                SignUpBtn(
+                    onClick = onSignUpClicked,
                 )
             }
         }
     }
+}
+
+@Composable
+private fun SignUpBtn(
+    onClick: () -> Unit,
+) {
+    SecondaryButton(
+        text = stringResource(
+            R.string.sign_up,
+        ),
+        onClick = onClick,
+        contentColor = MaterialTheme.colorScheme.primary,
+    )
+}
+
+@Composable
+private fun SignInBtn(
+    onClick: () -> Unit,
+) {
+    PrimaryButton(
+        text = stringResource(
+            R.string.sign_in,
+        ),
+        onClick = onClick,
+        backgroundColor = MaterialTheme.colorScheme.primary,
+    )
+}
+
+@Composable
+private fun PasswordInput(
+    text: String,
+    onTextChanged: (String) -> Unit,
+) {
+    TOATextField(
+        text = text,
+        onTextChanged = onTextChanged,
+        labelText = stringResource(
+            R.string.password,
+        ),
+    )
+}
+
+@Composable
+private fun UserNameInput(
+    text: String,
+    onTextChanged: (String) -> Unit,
+) {
+    TOATextField(
+        text = text,
+        onTextChanged = onTextChanged,
+        labelText = stringResource(
+            R.string.username,
+        ),
+    )
+}
+
+@Composable
+private fun AppLogo() {
+    Image(
+        painter = painterResource(
+            id = R.drawable.ic_launcher_foreground,
+        ),
+        contentDescription = stringResource(
+            R.string.app_logo_content_description,
+        ),
+        modifier = Modifier
+            .fillMaxWidth(APP_LOGO_FRACTION_WIDTH),
+    )
 }
 
 @PreviewNightLight
@@ -120,7 +175,11 @@ private fun EmptyLoginContentPreview() {
     )
     TasksOfAffirmationTheme {
         LoginContent(
-            viewState,
+            viewState = viewState,
+            onUserNameChanged = {},
+            onUserPasswordChanged = {},
+            onSignInClicked = {},
+            onSignUpClicked = {},
         )
     }
 }
