@@ -2,6 +2,7 @@ package com.tananygeek.toa.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -13,8 +14,15 @@ import androidx.compose.ui.text.toUpperCase
 import com.tananygeek.toa.R
 import com.tananygeek.toa.ui.theme.ButtonShape
 import com.tananygeek.toa.ui.theme.TasksOfAffirmationTheme
-import com.tananygeek.toa.ui.utility.NightLightPreview
+import com.tananygeek.toa.ui.utility.PreviewNightLight
 
+/**
+ * A custom implementation of a [Button] to show our Branding
+ *
+ * @param[text] Text inside the button.
+ * @param[onClick] A callback invoked whenever button clicked.
+ * @param[modifier] An optional [Modifier] to configure the component.
+ */
 @Composable
 fun SecondaryButton(
     text: String,
@@ -35,7 +43,7 @@ fun SecondaryButton(
     }
 }
 
-@NightLightPreview
+@PreviewNightLight
 @Composable
 fun SecondaryButtonPreview() {
     TasksOfAffirmationTheme {

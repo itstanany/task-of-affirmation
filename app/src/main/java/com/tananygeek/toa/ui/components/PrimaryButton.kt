@@ -15,8 +15,16 @@ import androidx.compose.ui.text.toUpperCase
 import com.tananygeek.toa.R
 import com.tananygeek.toa.ui.theme.ButtonShape
 import com.tananygeek.toa.ui.theme.TasksOfAffirmationTheme
-import com.tananygeek.toa.ui.utility.NightLightPreview
+import com.tananygeek.toa.ui.utility.PreviewNightLight
 
+/**
+ * A custom implementation of a [Button] to show our Branding
+ *
+ * @param[text] Text inside the button.
+ * @param[onClick] A callback invoked whenever button clicked.
+ * @param[modifier] An optional [Modifier] to configure the component.
+ * @param[backgroundColor] Optional background color in enabled state.
+ */
 @Composable
 fun PrimaryButton(
     text: String,
@@ -42,7 +50,7 @@ fun PrimaryButton(
     }
 }
 
-@NightLightPreview
+@PreviewNightLight
 @Composable
 fun PrimaryButtonPreview() {
     TasksOfAffirmationTheme() {
