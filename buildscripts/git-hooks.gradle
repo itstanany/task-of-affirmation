@@ -5,7 +5,6 @@ task installGitHook(type: Copy) {
     if (Os.isFamily(Os.FAMILY_WINDOWS)) {
         suffix = "windows"
     }
-    print("Inside installGitHook")
     // pre-commit hook
     from(new File(rootProject.rootDir, "git-hooks/pre-commit-${suffix}.sh")) {
         include '**/*.sh'
