@@ -1,4 +1,4 @@
-package com.tananygeek.toa.ui.theme
+package com.tananygeek.toa.core.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 

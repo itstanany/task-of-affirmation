@@ -1,4 +1,4 @@
-package com.tananygeek.toa.ui.core
+package com.tananygeek.toa.core.ui.core
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height

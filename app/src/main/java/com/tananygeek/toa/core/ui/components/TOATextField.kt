@@ -1,4 +1,4 @@
-package com.tananygeek.toa.ui.components
+package com.tananygeek.toa.core.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
@@ -8,9 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import com.tananygeek.toa.R
-import com.tananygeek.toa.ui.theme.TasksOfAffirmationTheme
-import com.tananygeek.toa.ui.theme.TextFieldShape
-import com.tananygeek.toa.ui.utility.PreviewNightLight
+import com.tananygeek.toa.core.ui.theme.TasksOfAffirmationTheme
+import com.tananygeek.toa.core.ui.theme.TextFieldShape
+import com.tananygeek.toa.core.ui.utility.PreviewNightLight
 
 /**
  * This is a custom implementation of an [OutlinedTextField] to ensure it reflect
