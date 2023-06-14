@@ -1,4 +1,4 @@
-package com.tananygeek.toa.ui.components
+package com.tananygeek.toa.core.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -13,9 +13,9 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.toUpperCase
 import com.tananygeek.toa.R
-import com.tananygeek.toa.ui.theme.ButtonShape
-import com.tananygeek.toa.ui.theme.TasksOfAffirmationTheme
-import com.tananygeek.toa.ui.utility.PreviewNightLight
+import com.tananygeek.toa.core.ui.theme.ButtonShape
+import com.tananygeek.toa.core.ui.theme.TasksOfAffirmationTheme
+import com.tananygeek.toa.core.ui.utility.PreviewNightLight
 
 /**
  * A custom implementation of a [Button] to show our Branding

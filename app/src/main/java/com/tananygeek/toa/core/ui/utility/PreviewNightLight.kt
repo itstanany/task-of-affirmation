@@ -1,4 +1,4 @@
-package com.tananygeek.toa.ui.utility
+package com.tananygeek.toa.core.ui.utility
 
 import android.content.res.Configuration
 import androidx.compose.ui.tooling.preview.Preview
