@@ -2,14 +2,15 @@ package com.tananygeek.toa.login.domain.usecase
 
 import com.tananygeek.toa.login.domain.model.Credentials
 import com.tananygeek.toa.login.domain.model.SignInResult
+import com.tananygeek.toa.login.domain.repository.SignInRepository
 
-class SuccessSignInUserCase : CredentialsSigninUseCase {
-    /**
-     * This is a fake implementation of sign in use case that is always successful
-     */
+class ProdCredentialsSignInUseCase(
+    private val signinRepository: SignInRepository,
+) : CredentialsSigninUseCase {
+
     override suspend fun invoke(
         credentials: Credentials,
     ): SignInResult {
-        return SignInResult.Success
+        TODO("Not yet implemented")
     }
 }
