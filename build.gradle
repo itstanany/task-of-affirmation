@@ -8,6 +8,10 @@ buildscript {
 
 //        https://github.com/mockk/mockk/releases/
         mockkVersion = "1.13.5"
+//        https://github.com/Kotlin/kotlinx.coroutines/releases
+        coroutines_version = "1.7.2"
+//        https://github.com/google/truth/releases
+        truth_version = "1.1.5"
     }
 }
 

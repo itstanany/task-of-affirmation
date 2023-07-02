@@ -12,6 +12,6 @@ value class Email(private val email: String)
 value class Password(private val password: String)
 
 data class Credentials(
-    val Email: Email,
+    val email: Email,
     val password: Password,
 )
