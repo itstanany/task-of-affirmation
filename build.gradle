@@ -5,6 +5,9 @@ buildscript {
 
         // https://github.com/detekt/detekt/releases
         detektVersion = "1.22.0"
+
+//        https://github.com/mockk/mockk/releases/
+        mockkVersion = "1.13.5"
     }
 }
 
