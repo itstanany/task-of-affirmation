@@ -2,8 +2,8 @@ package com.tananygeek.toa.login.domain.usecase
 
 import com.tananygeek.toa.login.domain.model.Credentials
 import com.tananygeek.toa.login.domain.model.Email
-import com.tananygeek.toa.login.domain.model.Password
 import com.tananygeek.toa.login.domain.model.LoginResult
+import com.tananygeek.toa.login.domain.model.Password
 
 /**
  * This interface consumes any information required to sign in the user, and attempts to do so.
