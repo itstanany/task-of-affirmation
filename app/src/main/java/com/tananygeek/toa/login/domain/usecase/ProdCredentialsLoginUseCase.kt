@@ -19,6 +19,7 @@ class ProdCredentialsLoginUseCase(
     ): LoginResult {
         // I don't understand how repository return a result when it not actually implemented yet
         // I think he implemented it only to pass the tests
+//        in tests, loginRepository.login is mocked and has a pre-defined return value
         val repoResult = loginRepository.login(
             credentials,
         )
