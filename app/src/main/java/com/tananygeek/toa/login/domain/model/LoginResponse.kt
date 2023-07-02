@@ -6,6 +6,6 @@ package com.tananygeek.toa.login.domain.model
  * @param[authToken] This is a unique token that will allow us to authenticate future requests
  * in the application
  */
-data class SignInResponse(
+data class LoginResponse(
     val authToken: String,
 )
