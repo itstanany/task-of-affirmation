@@ -3,16 +3,16 @@ package com.tananygeek.toa.login.domain.model
 /**
  * A class that returns the result of a SignIn attempt by the user
  */
-sealed class SignInResult {
+sealed class LoginResult {
     /**
      * User successfully signed in.
      */
-    object Success : SignInResult()
+    object Success : LoginResult()
 
     /**
      * Failure SignIn attempt
      */
-    sealed class Failure : SignInResult() {
+    sealed class Failure : LoginResult() {
         /**
          * User passed credentials not found(matching) or invalid
          */

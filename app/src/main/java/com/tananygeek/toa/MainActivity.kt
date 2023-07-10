@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.tananygeek.toa.core.ui.theme.TasksOfAffirmationTheme
+import com.tananygeek.toa.login.ui.LoginContent
+import com.tananygeek.toa.login.ui.LoginViewState
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +24,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
                 ) {
-                    Greeting("Android")
+                    LoginContent(
+                        viewState = LoginViewState(email = "aaa", password = "ddd"),
+                        onEmailChanged = { /* ToDO */ },
+                        onUserPasswordChanged = { /* TODO */ },
+                        onSignInClicked = { /*TODO*/ },
+                    ) {
+                    }
                 }
             }
         }
