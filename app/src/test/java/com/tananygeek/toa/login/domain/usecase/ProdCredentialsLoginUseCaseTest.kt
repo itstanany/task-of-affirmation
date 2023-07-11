@@ -3,12 +3,16 @@ package com.tananygeek.toa.login.domain.usecase
 import com.google.common.truth.Truth.assertThat
 import com.tananygeek.toa.core.data.Result
 import com.tananygeek.toa.fakes.FakeLoginRepository
+import com.tananygeek.toa.fakes.FakeTokenRepository
+import com.tananygeek.toa.login.domain.model.AuthToken
 import com.tananygeek.toa.login.domain.model.Credentials
 import com.tananygeek.toa.login.domain.model.Email
 import com.tananygeek.toa.login.domain.model.InvalidCredentialsException
 import com.tananygeek.toa.login.domain.model.LoginResponse
 import com.tananygeek.toa.login.domain.model.LoginResult
 import com.tananygeek.toa.login.domain.model.Password
+import com.tananygeek.toa.login.domain.model.RefreshToken
+import com.tananygeek.toa.login.domain.model.Token
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 
@@ -24,9 +28,9 @@ class ProdCredentialsLoginUseCaseTest {
             email,
             password,
         )
-
+        val token = Token(AuthToken("sss"), RefreshToken("ggg"))
         val response = LoginResponse(
-            authToken = "Success",
+            token,
         )
 
         val loginResponse = Result.Success(response)
@@ -39,8 +43,11 @@ class ProdCredentialsLoginUseCaseTest {
             )
         }
 
+        val tokenRepository = FakeTokenRepository()
+
         val useCase = ProdCredentialsLoginUseCase(
             loginRepository.mock,
+            tokenRepository.mock,
         )
         val result = useCase(
             inputCredentials,
@@ -50,6 +57,9 @@ class ProdCredentialsLoginUseCaseTest {
             result,
         ).isEqualTo(
             LoginResult.Success,
+        )
+        tokenRepository.verifyTokenStored(
+            token,
         )
     }
 
@@ -75,8 +85,11 @@ class ProdCredentialsLoginUseCaseTest {
             )
         }
 
+        val tokenRepository = FakeTokenRepository()
+
         val useCase = ProdCredentialsLoginUseCase(
             loginRepository.mock,
+            tokenRepository.mock,
         )
         val result = useCase(
             inputCredentials,
@@ -87,6 +100,7 @@ class ProdCredentialsLoginUseCaseTest {
         ).isEqualTo(
             LoginResult.Failure.Unknown,
         )
+        tokenRepository.verifyTokenNotStored()
     }
 
     @Test
@@ -111,8 +125,11 @@ class ProdCredentialsLoginUseCaseTest {
             )
         }
 
+        val tokenRepository = FakeTokenRepository()
+
         val useCase = ProdCredentialsLoginUseCase(
             loginRepository.mock,
+            tokenRepository.mock,
         )
         val result = useCase(
             inputCredentials,
@@ -123,5 +140,7 @@ class ProdCredentialsLoginUseCaseTest {
         ).isEqualTo(
             LoginResult.Failure.InvalidCredentials,
         )
+
+        tokenRepository.verifyTokenNotStored()
     }
 }
