@@ -32,6 +32,7 @@ fun SecondaryButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     contentColor: Color = MaterialTheme.colorScheme.primary,
+    enabled: Boolean = true,
 ) {
     val txtBtnColors = textButtonColors(
         contentColor = contentColor,
@@ -43,6 +44,7 @@ fun SecondaryButton(
             .height(dimensionResource(id = R.dimen.button_height))
             .fillMaxWidth(),
         colors = txtBtnColors,
+        enabled = enabled,
     ) {
         Text(
             text = text.toUpperCase(Locale.current),
