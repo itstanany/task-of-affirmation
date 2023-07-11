@@ -5,6 +5,7 @@ import com.tananygeek.toa.login.domain.model.Credentials
 import com.tananygeek.toa.login.domain.model.InvalidCredentialsException
 import com.tananygeek.toa.login.domain.model.LoginResult
 import com.tananygeek.toa.login.domain.repository.LoginRepository
+import com.tananygeek.toa.login.domain.repository.TokenRepository
 
 /**
  * A concrete implementation of [CredentialsLoginUseCase] that will request logging in via
@@ -12,6 +13,7 @@ import com.tananygeek.toa.login.domain.repository.LoginRepository
  */
 class ProdCredentialsLoginUseCase(
     private val loginRepository: LoginRepository,
+    private val tokenRepository: TokenRepository,
 ) : CredentialsLoginUseCase {
 
     override suspend fun invoke(
@@ -26,6 +28,7 @@ class ProdCredentialsLoginUseCase(
 
         return when (repoResult) {
             is Result.Success -> {
+                tokenRepository.storeToken(repoResult.data.token)
                 return LoginResult.Success
             }
             is Result.Error -> {
