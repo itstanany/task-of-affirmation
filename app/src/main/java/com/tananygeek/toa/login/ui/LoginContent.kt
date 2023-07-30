@@ -26,7 +26,7 @@ import com.tananygeek.toa.R
 import com.tananygeek.toa.core.ui.components.PrimaryButton
 import com.tananygeek.toa.core.ui.components.SecondaryButton
 import com.tananygeek.toa.core.ui.components.TOATextField
-import com.tananygeek.toa.core.ui.core.VerticalSpacer
+import com.tananygeek.toa.core.ui.components.VerticalSpacer
 import com.tananygeek.toa.core.ui.theme.TasksOfAffirmationTheme
 import com.tananygeek.toa.core.ui.utility.PreviewNightLight
 import com.tananygeek.toa.login.domain.model.Credentials
