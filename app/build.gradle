@@ -63,6 +63,8 @@ dependencies {
     testImplementation "io.mockk:mockk:${mockkVersion}"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
     testImplementation "com.google.truth:truth:$truth_version"
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
